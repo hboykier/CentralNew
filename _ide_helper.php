@@ -2862,7 +2862,7 @@ namespace {
             //Method inherited from \Illuminate\Database\Connection            
             return \Illuminate\Database\MySqlConnection::getDoctrineSchemaManager();
         }
-        
+
         /**
          * Get the Doctrine DBAL database connection instance.
          *
