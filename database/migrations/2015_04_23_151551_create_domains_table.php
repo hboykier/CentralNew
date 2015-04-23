@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDomains extends Migration {
+class CreateDomainsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,10 +14,10 @@ class CreateDomains extends Migration {
 	{
 		Schema::create('domains', function(Blueprint $table)
 		{
-            $table->increments('id');
+			$table->increments('id');
             $table->string('code', 20)->unique();
             $table->string('name', 100)->unique();
-            $table->timestamps();
+			$table->timestamps();
 		});
 	}
 

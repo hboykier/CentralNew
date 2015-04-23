@@ -1,0 +1,3 @@
+Para crear un modelo:
+php artisan make:model Models/(tabla)
+Crea la tabla y la migracion en el dir Models
