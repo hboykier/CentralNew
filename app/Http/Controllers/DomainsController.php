@@ -3,9 +3,10 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Models\Domain;
 use Illuminate\Http\Request;
 
-class DomainController extends Controller {
+class DomainsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +15,8 @@ class DomainController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$domains = Domain::paginate();
+        return view('admin.domains.index', compact('domains'));
 	}
 
 	/**

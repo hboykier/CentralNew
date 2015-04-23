@@ -20,4 +20,4 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::resource('domain', 'DomainController');
+Route::resource('domains', 'DomainsController');
