@@ -28,14 +28,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">CentralNew</a>
+				<a class="navbar-brand" href="{{ url('/') }}">CentralNew</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
-				</ul>
-
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
@@ -58,7 +54,9 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        <b>
                         @yield('panel title')
+                        </b>
                     </div>
                     <div class="panel-body">
                         @yield('panel body')
