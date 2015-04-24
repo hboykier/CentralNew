@@ -26,7 +26,7 @@ class DomainsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('admin.domains.create');
 	}
 
 	/**
