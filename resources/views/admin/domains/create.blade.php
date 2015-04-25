@@ -14,8 +14,12 @@
         {!!Form::label('name', 'Nombre', ['class'=>'col-sm-1 control-label']);!!}
         {!!Form::text('name', null, ['class'=>'control-label']);!!}
     </div>
-    <div class="form-group">
-        {!!Form::submit('Aceptar', ['class'=>'btn btn-default col-sm-1 col-sm-offset-1 ']);!!}
+    <div class="button-group" role="group">
+    </div>
+
+    <div class="btn-group col-sm-offset-1 " role="group" aria-label="...">
+        {!!Form::submit('Aceptar', ['class'=>'btn btn-default']);!!}
+        {!!Form::submit('Seguir', ['class'=>'btn btn-default']);!!}
     </div>
     {!! Form::close();!!}
 @endsection
