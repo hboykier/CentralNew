@@ -36,7 +36,7 @@ class DomainsController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		echo '1';
 	}
 
 	/**

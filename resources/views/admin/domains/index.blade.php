@@ -1,10 +1,11 @@
 @extends('app_layout')
 
 @section('panel title')
-    Dominios
-    <a class="panel-right btn btn-default" role="button" href="{{route('domains.create')}}" title="Nuevo">
+    <a class="btn btn-default" role="button" href="{{route('domains.create')}}" title="Nuevo">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
+    Dominios
+
 @endsection
 
 @section('panel body')
