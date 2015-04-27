@@ -1,21 +1,31 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
+use App\Http\Requests\DomainRequest;
 use App\Models\Domain;
-use Illuminate\Http\Request;
 
 class DomainsController extends Controller {
 
-	/**
+    /**
+     * @var Request
+     */
+/*
+    protected $request;
+
+    function __construct(DomainRequest $req)
+
+    {
+        $this->request = $req;
+    }
+*/
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$domains = Domain::paginate();
+		$domains = Domain::paginate(\Config::get('constants.rowsPerPage'));
         return view('admin.domains.index', compact('domains'));
 	}
 
@@ -34,9 +44,12 @@ class DomainsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(DomainRequest $request)
 	{
-		echo '1';
+        $domain = new Domain($request->all());
+        $domain->save();
+        $route=\Input::get('save')!=null ? 'domains.index' : 'domains.create';
+        return \Redirect::route($route);
 	}
 
 	/**

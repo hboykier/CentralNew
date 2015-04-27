@@ -59,6 +59,7 @@
                         </b>
                     </div>
                     <div class="panel-body">
+                        @include('errors')
                         @yield('panel body')
                     </div>
                 </div>

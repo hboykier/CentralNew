@@ -17,6 +17,7 @@ class CreateDomainsTable extends Migration {
 			$table->increments('id');
             $table->string('code', 20)->unique();
             $table->string('name', 100)->unique();
+            $table->text('description');
 			$table->timestamps();
 		});
 	}
