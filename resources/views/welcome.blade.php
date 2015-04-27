@@ -1,8 +1,12 @@
 <html>
 	<head>
-		<title>Laravel</title>
-		
-		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+		<title>Laravel 5</title>
+        <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('/css/animate.css') }}" rel="stylesheet">
+
+        <link rel="shortcut icon" href="favicon.ico"/>
+
+        <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
 		<style>
 			body {
@@ -44,5 +48,24 @@
 				<div class="quote">{{ Inspiring::quote() }}</div>
 			</div>
 		</div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        {!!Html::script('js/bootstrap-notify.js')!!}
+
+    <script>
+
+        var notify = $.notify({message: 'Hello World<br>New'},{type: 'success', placement: {
+            from: "bottom",
+            align: "center"},
+            allow_dismiss: false,
+            animate:{
+                enter: "animated fadeInUp",
+                exit: "animated fadeOutDown"}});
+
+    </script>
+    Session::flash('Mensaje', 'Texto');<br>
+    Para recuperarlo y mostrarlo en el mensaje: Session:get('Mensaje');
 	</body>
 </html>
+
