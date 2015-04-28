@@ -5,7 +5,8 @@
 @endsection
 
 @section('panel body')
-    {!! Form::open (array('route'=>'domains.store', 'method'=>'POST')) !!}
+    {{Route::getCurrentRoute()->getName()}}
+    {!! Form::model ($domain, array('route'=>'domains.store', 'method'=>'POST')) !!}
     <div class="form-group">
         {!!Form::label('code', 'Código', ['class'=>'col-sm-1 control-label'])!!}
         {!!Form::text('code', null, ['class'=>'control-label',  'autofocus'=>'autofocus'])!!}

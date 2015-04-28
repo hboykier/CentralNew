@@ -22,8 +22,8 @@
             <td>{{$domain->code}}</td>
             <td>{{$domain->name}}</td>
             <td>
-                <a class="btn btn-default" title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                <a class="btn btn-default" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                <a class="btn btn-default" href={{route('domains.edit', $domain)}} title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                <a class="btn btn-default" href={{route('domains.show', $domain)}} title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
         </tr>
     @endforeach

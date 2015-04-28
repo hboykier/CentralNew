@@ -1,1 +1,3 @@
 Ver Gulp y Elixir para manejo de assests
+Implementar DataTables?
+Usar laracasts/flash para los mensajes?

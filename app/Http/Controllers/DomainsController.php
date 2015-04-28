@@ -36,7 +36,8 @@ class DomainsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('admin.domains.create');
+        $domain = new Domain();
+        return view('admin.domains.create', compact ('domain'));
 	}
 
 	/**
@@ -49,7 +50,7 @@ class DomainsController extends Controller {
         $domain = new Domain($request->all());
         $domain->save();
         $route=\Input::get('save')!=null ? 'domains.index' : 'domains.create';
-        return \Redirect::route($route);
+        return \Redirect::route($route)->withSuccess('Se creó el dominio ' . $domain->code);
 	}
 
 	/**
@@ -60,7 +61,7 @@ class DomainsController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+        return $this->edit($id);
 	}
 
 	/**
@@ -71,7 +72,8 @@ class DomainsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+        $domain = Domain::findOrFail ($id);
+        return view('admin.domains.create', compact ('domain'));
 	}
 
 	/**
@@ -80,9 +82,12 @@ class DomainsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(DomainRequest $request)
 	{
-		//
+        $domain = Domain::findOrFail($request->id);
+        $domain->fill($request->all());
+        $domain->save();
+        return \Redirect::route('admin.domains.index')->withSuccess('Se actualizó el dominio ' . $domain->code);
 	}
 
 	/**
@@ -93,7 +98,9 @@ class DomainsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
-	}
+        $domain = Domain::findOrFail($id);
+        $domain->delete();
+        return \Redirect::route('admin.domains.index')->withSuccess('Se eliminó el dominio ' . $domain->code);
+    }
 
 }
