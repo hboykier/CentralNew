@@ -22,11 +22,12 @@
             <td>{{$domain->code}}</td>
             <td>{{$domain->name}}</td>
             <td>
-                <a class="btn btn-default" href={{route('domains.edit', $domain)}} title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                <a class="btn btn-default" href={{route('domains.show', $domain)}} title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                <a class="btn btn-default" href="{{route('domains.edit', $domain)}}" title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+{{--                <a class="btn btn-default confirModal" href="{{route('domains.destroy', $domain)}}" title="Eliminar" data-confirm-title="Eliminar {{$domain->code}}?" data-confirm-message="Confirmá presionando Sí" data-confirm-ok="Sí" data-confirm-cancel="NO"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>--}}
             </td>
         </tr>
     @endforeach
 </table>
 {!! $domains->render() !!}
+
 @endsection
