@@ -1,14 +1,29 @@
 <?php namespace App\Http\Requests;
 
+use App\Helpers\MyRouteHelper;
 use App\Http\Requests\Request;
 
 class DomainRequest extends Request {
 
-	/**
+
+    /**
+     * @var \Route
+     */
+    private $route;
+
+    function __construct(\Route $route)
+    {
+
+        $this->route = $route;
+    }
+
+    /**
 	 * Determine if the user is authorized to make this request.
 	 *
 	 * @return bool
 	 */
+
+
 	public function authorize()
 	{
 		return true;
@@ -21,9 +36,11 @@ class DomainRequest extends Request {
 	 */
 	public function rules()
 	{
+        $action = MyRouteHelper::action($this->route);
+        $id = ',';
 		return [
-            'code' => 'required|unique:domains,code|max:20',
-            'name' => 'required|unique:domains,name|max:100',
+            'code' => 'required|unique:domains,code,id|max:20',
+            'name' => 'required|unique:domains,name,id|max:100',
         ];
 	}
 

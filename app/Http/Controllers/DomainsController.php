@@ -37,7 +37,8 @@ class DomainsController extends Controller {
 	public function create()
 	{
         $domain = new Domain();
-        return view('admin.domains.edit', compact ('domain'));
+        $action = 'create';
+        return view('admin.domains.edit', compact ('domain', 'action'));
 	}
 
 	/**
@@ -72,7 +73,8 @@ class DomainsController extends Controller {
 	public function edit($id)
 	{
         $domain = Domain::findOrFail ($id);
-        return view('admin.domains.edit', compact ('domain'));
+        $action = 'edit';
+        return view('admin.domains.edit', compact ('domain', 'action'));
 	}
 
 	/**

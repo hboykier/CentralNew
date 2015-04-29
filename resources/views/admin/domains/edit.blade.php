@@ -1,12 +1,20 @@
 @extends('app_layout')
 
 @section('panel title')
-    Nuevo Dominio
+    @if($action=='create')
+    Crear
+    @else
+    Editar
+    @endif
+    Dominio
 @endsection
 
 @section('panel body')
-    {{Route::getCurrentRoute()->getName()}}
-    {!! Form::model ($domain, array('route'=>'domains.store', 'method'=>'POST')) !!}
+    @if($action=='create')
+        {!! Form::model ($domain, array('route'=>'domains.store', 'method'=>'POST')) !!}
+    @else
+        {!! Form::model ($domain, array('route'=>['domains.update', $domain], 'method'=>'PUT')) !!}
+    @endif
     <div class="form-group">
         {!!Form::label('code', 'Código', ['class'=>'col-sm-1 control-label'])!!}
         {!!Form::text('code', null, ['class'=>'control-label',  'autofocus'=>'autofocus'])!!}
@@ -21,8 +29,14 @@
     </div>
 
     <div class="btn-group col-sm-offset-1 " role="group" aria-label="...">
-        {!!Form::submit('Aceptar', ['class'=>'btn btn-default', 'name' => 'save'])!!}
-        {!!Form::submit('Seguir', ['class'=>'btn btn-default', 'name' => 'continue'])!!}
+        @if($action=='create')
+            {!!Form::submit('Aceptar', ['class'=>'btn btn-default', 'name' => 'save'])!!}
+            {!!Form::submit('Seguir', ['class'=>'btn btn-default', 'name' => 'continue'])!!}
+        @else
+            {!!Form::submit('Modificar', ['class'=>'btn btn-default', 'name' => 'save'])!!}
+            {!!Form::submit('Eliminar', ['class'=>'btn btn-default', 'name' => 'continue'])!!}
+        @endif
+
         <a class="btn btn-default" role="button" href="{{route('domains.index')}}" title="Volver">
             Volver
         </a>
