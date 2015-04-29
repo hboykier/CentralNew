@@ -26,7 +26,7 @@ class DomainsController extends Controller {
 	public function index()
 	{
 		$domains = Domain::paginate(\Config::get('constants.rowsPerPage'));
-        return view('admin.domains.index', compact('domains'));
+        return view('admin.domains.list', compact('domains'));
 	}
 
 	/**
@@ -37,7 +37,7 @@ class DomainsController extends Controller {
 	public function create()
 	{
         $domain = new Domain();
-        return view('admin.domains.create', compact ('domain'));
+        return view('admin.domains.edit', compact ('domain'));
 	}
 
 	/**
@@ -61,7 +61,6 @@ class DomainsController extends Controller {
 	 */
 	public function show($id)
 	{
-        return $this->edit($id);
 	}
 
 	/**
@@ -73,7 +72,7 @@ class DomainsController extends Controller {
 	public function edit($id)
 	{
         $domain = Domain::findOrFail ($id);
-        return view('admin.domains.create', compact ('domain'));
+        return view('admin.domains.edit', compact ('domain'));
 	}
 
 	/**

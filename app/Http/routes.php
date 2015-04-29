@@ -22,4 +22,4 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::resource('domains', 'DomainsController');
+Route::resource('domains', 'DomainsController', ['except' => 'show']);
