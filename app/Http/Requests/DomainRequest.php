@@ -1,6 +1,6 @@
 <?php namespace App\Http\Requests;
 
-use App\Helpers\MyRouteHelper;
+use App\Library\Helpers\MyRouteHelper;
 use App\Http\Requests\Request;
 
 class DomainRequest extends Request {
@@ -36,6 +36,7 @@ class DomainRequest extends Request {
 	 */
 	public function rules()
 	{
+        $p=new MyRouteHelper();
         $action = MyRouteHelper::action($this->route);
         $id = ',';
 		return [

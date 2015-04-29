@@ -1,4 +1,4 @@
-<?php namespace App\Helpers {
+<?php namespace App\Library\Helpers {
 
     class MyRouteHelper {
         public static function action(\Route $route) {

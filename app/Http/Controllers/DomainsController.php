@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 
+use App\Library\Helpers\MyRouteHelper;
 use App\Http\Requests\DomainRequest;
 use App\Models\Domain;
 
