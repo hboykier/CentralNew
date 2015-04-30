@@ -84,12 +84,12 @@ class DomainsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(DomainRequest $request)
+	public function update(DomainRequest $request, $id)
 	{
-        $domain = Domain::findOrFail($request->id);
+        $domain = Domain::findOrFail($id);
         $domain->fill($request->all());
         $domain->save();
-        return \Redirect::route('admin.domains.index')->withSuccess('Se actualizó el dominio ' . $domain->code);
+        return \Redirect::route('domains.index')->withSuccess('Se actualizó el dominio ' . $domain->code);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class DomainsController extends Controller {
 	{
         $domain = Domain::findOrFail($id);
         $domain->delete();
-        return \Redirect::route('admin.domains.index')->withSuccess('Se eliminó el dominio ' . $domain->code);
+        return \Redirect::route('domains.index')->withSuccess('Se eliminó el dominio ' . $domain->code);
     }
 
 }

@@ -6,3 +6,4 @@ Para crear un controlador:
 php artisan make:controller (nombre del controller)
 Agregar en routes.php para que use el controlador
 Route::resource('domain', '(nombre del controller)');
+

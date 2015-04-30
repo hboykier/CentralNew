@@ -2,6 +2,7 @@
 
 use App\Library\Helpers\MyRouteHelper;
 use App\Http\Requests\Request;
+use Illuminate\Routing\Route;
 
 class DomainRequest extends Request {
 
@@ -11,7 +12,7 @@ class DomainRequest extends Request {
      */
     private $route;
 
-    function __construct(\Route $route)
+    function __construct(Route $route)
     {
 
         $this->route = $route;
@@ -36,12 +37,13 @@ class DomainRequest extends Request {
 	 */
 	public function rules()
 	{
-        $p=new MyRouteHelper();
-        $action = MyRouteHelper::action($this->route);
-        $id = ',';
+        $id = '';
+        if(MyRouteHelper::action($this->route)=='update') {
+            $id = ',' . $this->route->getParameter('domains');
+        }
 		return [
-            'code' => 'required|unique:domains,code,id|max:20',
-            'name' => 'required|unique:domains,name,id|max:100',
+            'code' => 'required|unique:domains,code'.$id.'|max:20',
+            'name' => 'required|unique:domains,name'.$id.'|max:100',
         ];
 	}
 

@@ -29,5 +29,4 @@
     @endforeach
 </table>
 {!! $domains->render() !!}
-
 @endsection

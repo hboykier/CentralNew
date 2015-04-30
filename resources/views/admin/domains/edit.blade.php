@@ -2,9 +2,9 @@
 
 @section('panel title')
     @if($action=='create')
-    Crear
+        Crear
     @else
-    Editar
+        Editar
     @endif
     Dominio
 @endsection
@@ -16,15 +16,15 @@
         {!! Form::model ($domain, array('route'=>['domains.update', $domain], 'method'=>'PUT')) !!}
     @endif
     <div class="form-group">
-        {!!Form::label('code', 'Código', ['class'=>'col-sm-1 control-label'])!!}
+        {!!Form::label('code', 'Código', ['class'=>'col-sm-2 control-label'])!!}
         {!!Form::text('code', null, ['class'=>'control-label',  'autofocus'=>'autofocus'])!!}
     </div>
     <div class="form-group">
-        {!!Form::label('name', 'Nombre', ['class'=>'col-sm-1 control-label'])!!}
+        {!!Form::label('name', 'Nombre', ['class'=>'col-sm-2 control-label'])!!}
         {!!Form::text('name', null, ['class'=>'control-label'])!!}
     </div>
     <div class="form-group">
-        {!!Form::label('description', 'Descripcion', ['class'=>'col-sm-1 control-label'])!!}
+        {!!Form::label('description', 'Descripcion', ['class'=>'col-sm-2 control-label'])!!}
         {!!Form::textarea('description', null, ['class'=>'control-label'])!!}
     </div>
 
@@ -34,7 +34,7 @@
             {!!Form::submit('Seguir', ['class'=>'btn btn-default', 'name' => 'continue'])!!}
         @else
             {!!Form::submit('Modificar', ['class'=>'btn btn-default', 'name' => 'save'])!!}
-            {!!Form::submit('Eliminar', ['class'=>'btn btn-default', 'name' => 'continue'])!!}
+            {!!Form::button('Eliminar', ['class'=>'btn btn-default', 'data-toggle'=>'modal', 'data-target'=>'#modal-delete'])!!}
         @endif
 
         <a class="btn btn-default" role="button" href="{{route('domains.index')}}" title="Volver">
@@ -42,4 +42,7 @@
         </a>
     </div>
     {!! Form::close()!!}
+
+    @include('modal_delete', ['entity' => 'el dominio', 'value' => $domain->code, 'route'=>'domains.destroy', 'id'=>$domain->id])
+
 @endsection
