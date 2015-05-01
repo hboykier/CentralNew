@@ -10,10 +10,12 @@
                 </p>
             </div>
             <div class="modal-footer">
-                {!! Form::model ($domain, array('route'=>[$route, $id], 'method'=>'DELETE')) !!}
-                {!! Form::button('No', ['class'=>'btn btn-default', 'data-dismiss'=>'modal'])!!}
-                {!! Form::submit('Si', ['class'=>'btn btn-danger'])!!}
-                {!! Form::close()!!}
+                <form method="POST" action="{{URL::route($route, [$id])}}" accept-charset="UTF-8">
+                    <input name="_method" type="hidden" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    {!! Form::button('No', ['class'=>'btn btn-default', 'data-dismiss'=>'modal'])!!}
+                    {!! Form::submit('Si', ['class'=>'btn btn-danger'])!!}
+                </form>
             </div>
         </div>
     </div>

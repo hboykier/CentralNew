@@ -28,7 +28,7 @@
         {!!Form::textarea('description', null, ['class'=>'control-label'])!!}
     </div>
 
-    <div class="btn-group col-sm-offset-1 " role="group" aria-label="...">
+    <div class="btn-group col-sm-offset-2 " role="group" aria-label="...">
         @if($action=='create')
             {!!Form::submit('Aceptar', ['class'=>'btn btn-default', 'name' => 'save'])!!}
             {!!Form::submit('Seguir', ['class'=>'btn btn-default', 'name' => 'continue'])!!}

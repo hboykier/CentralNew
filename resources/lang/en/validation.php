@@ -102,9 +102,5 @@ return [
 	|
 	*/
 
-	'attributes' => ['code'=>'código',
-                     'name'=>'nombre',
-                     'description'=>'descripción'
-    ],
 
 ];
