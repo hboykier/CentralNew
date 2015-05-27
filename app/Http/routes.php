@@ -23,3 +23,4 @@ Route::controllers([
 ]);
 
 Route::resource('domains', 'DomainsController', ['except' => 'show']);
+Route::resource('users', 'UsersController', ['except' => 'show']);

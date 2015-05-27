@@ -3,9 +3,9 @@
 
 use App\Library\Helpers\MyRouteHelper;
 use App\Http\Requests\DomainRequest;
-use App\Models\Domain;
+use App\Models\User;
 
-class DomainsController extends Controller {
+class UsersController extends Controller {
 
     /**
 	 * Display a listing of the resource.
@@ -14,8 +14,8 @@ class DomainsController extends Controller {
 	 */
 	public function index()
 	{
-		$domains = Domain::paginate(\Config::get('constants.rowsPerPage'));
-        return view('admin.domains.list', compact('domains'));
+		$users = User::paginate(\Config::get('constants.rowsPerPage'));
+        return view('admin.users.list', compact('users'));
 	}
 
 	/**

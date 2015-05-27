@@ -15,15 +15,15 @@
         <th>Descripción</th>
         <th></th>
     </tr>
-    @foreach($domains as $domain)
+    @foreach($users as $user)
         <tr>
-            <td>{{$domain->code}}</td>
-            <td>{{$domain->name}}</td>
+            <td>{{$user->code}}</td>
+            <td>{{$user->first_name}}</td>
             <td>
-                <a class="btn btn-default" href="{{route('domains.edit', $domain)}}" title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                <a class="btn btn-default" href="{{route('users.edit', $user)}}" title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
             </td>
         </tr>
     @endforeach
 </table>
-{!! $domains->render() !!}
+{!! $users->render() !!}
 @endsection

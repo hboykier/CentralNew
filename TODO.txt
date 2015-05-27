@@ -4,3 +4,8 @@ Usar laracasts/flash para los mensajes?
 Ver este link para extensiones de Blade http://stackoverflow.com/questions/18329541/where-to-place-bladeextend
 Agregar estos iconos http://fortawesome.github.io/Font-Awesome/
 Ver como resolver el problema del modal de baja para sacar el form
+
+App TODO
+------------
+Poner una opcion para ver si funciona el remember me en la aplicacion o si se apaga
+Para guardar la fotos \Storage::put(\Config::get('constants.userImagesPath').'/'.'file.txt', 'Hola');
