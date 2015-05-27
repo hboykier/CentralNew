@@ -25,9 +25,9 @@ class UsersController extends Controller {
 	 */
 	public function create()
 	{
-        $domain = new Domain();
+        $user = new User();
         $action = 'create';
-        return view('admin.domains.edit', compact ('domain', 'action'));
+        return view('admin.users.edit', compact ('user', 'action'));
 	}
 
 	/**

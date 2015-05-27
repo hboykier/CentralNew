@@ -13,11 +13,13 @@
     <tr>
         <th>Código</th>
         <th>Descripción</th>
+        <th>Email</th>
         <th></th>
     </tr>
     @foreach($domains as $domain)
         <tr>
             <td>{{$domain->code}}</td>
+            <td>{{$domain->name}}</td>
             <td>{{$domain->name}}</td>
             <td>
                 <a class="btn btn-default" href="{{route('domains.edit', $domain)}}" title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
